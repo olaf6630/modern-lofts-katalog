@@ -1115,6 +1115,8 @@ header {
 /* END LANGUAGE SWITCHER */
 
 
+
+
 /* HD DOWNLOAD BUTTONS */
 .dl-card-btn {
   margin-top: 10px;
@@ -1422,13 +1424,13 @@ const UI_I18N = {
     colorLbl: 'Kolor', styleLbl: 'Styl', mountLbl: 'Montaż', matLbl: 'Materiał', dimsLbl: 'Wymiary', catLbl: 'Kategoria',
     copiedToast: 'Skopiowano: ', csvToast: 'Pobrano plik CSV dla języka: ',
     thDl: 'Zdjęcia HD',
-    dlBtn: (n) => n > 1 ? `⬇️ Pobierz zdjęcia HD (${n})` : '⬇️ Pobierz zdjęcie HD',
-    dlTblBtn: (n) => n > 1 ? `📥 HD (${n})` : '📥 HD',
-    dlOneBtn: '🖼️ Pobierz to zdjęcie (HD)',
-    dlZipBtn: (n) => n > 1 ? `📦 Wszystkie (${n} ZIP)` : '📥 Pobierz HD JPG',
-    dlTopBtn: '📥 Pobierz HD',
-    dlBusy: '⏳ Pakowanie HD...',
-    dlToast: (n, sku) => n > 1 ? `Pobrano ${n} zdjęć HD (${sku}.zip)` : `Pobrano zdjęcie HD (${sku}.jpg)`
+    dlBtn: (n) => n > 1 ? `⬇️ Pobierz zdjęcia HD (${n} JPG)` : '⬇️ Pobierz zdjęcie HD (JPG)',
+    dlTblBtn: (n) => n > 1 ? `📥 ${n} JPG` : '📥 JPG',
+    dlOneBtn: '🖼️ Pobierz to zdjęcie (JPG)',
+    dlZipBtn: (n) => n > 1 ? `⬇️ Wszystkie (${n} JPG)` : '📥 Pobierz JPG',
+    dlTopBtn: '📥 Pobierz JPG',
+    dlBusy: '⏳ Pobieranie...',
+    dlToast: (n, sku) => n > 1 ? `Pobrano ${n} zdjęć HD (.jpg) — ${sku}` : `Pobrano zdjęcie HD (.jpg) — ${sku}`
   },
   es: {
     logoTag: 'Oferta Comercial y Logística',
@@ -1461,13 +1463,13 @@ const UI_I18N = {
     colorLbl: 'Color', styleLbl: 'Estilo', mountLbl: 'Montaje', matLbl: 'Material', dimsLbl: 'Medidas', catLbl: 'Categoría',
     copiedToast: 'Copiado: ', csvToast: 'CSV descargado en idioma: ',
     thDl: 'Fotos HD',
-    dlBtn: (n) => n > 1 ? `⬇️ Descargar fotos HD (${n})` : '⬇️ Descargar foto HD',
-    dlTblBtn: (n) => n > 1 ? `📥 HD (${n})` : '📥 HD',
-    dlOneBtn: '🖼️ Descargar esta foto (HD)',
-    dlZipBtn: (n) => n > 1 ? `📦 Todas (${n} ZIP)` : '📥 Descargar HD JPG',
-    dlTopBtn: '📥 Descargar HD',
-    dlBusy: '⏳ Preparando HD...',
-    dlToast: (n, sku) => n > 1 ? `Descargadas ${n} fotos HD (${sku}.zip)` : `Foto HD descargada (${sku}.jpg)`
+    dlBtn: (n) => n > 1 ? `⬇️ Descargar fotos HD (${n} JPG)` : '⬇️ Descargar foto HD (JPG)',
+    dlTblBtn: (n) => n > 1 ? `📥 ${n} JPG` : '📥 JPG',
+    dlOneBtn: '🖼️ Descargar esta foto (JPG)',
+    dlZipBtn: (n) => n > 1 ? `⬇️ Todas (${n} JPG)` : '📥 Descargar JPG',
+    dlTopBtn: '📥 Descargar JPG',
+    dlBusy: '⏳ Descargando...',
+    dlToast: (n, sku) => n > 1 ? `Descargadas ${n} fotos HD (.jpg) — ${sku}` : `Foto HD descargada (.jpg) — ${sku}`
   },
   en: {
     logoTag: 'Trade Offer & Logistics',
@@ -1500,13 +1502,13 @@ const UI_I18N = {
     colorLbl: 'Color', styleLbl: 'Style', mountLbl: 'Mounting', matLbl: 'Material', dimsLbl: 'Dimensions', catLbl: 'Category',
     copiedToast: 'Copied: ', csvToast: 'Downloaded CSV for language: ',
     thDl: 'HD Photos',
-    dlBtn: (n) => n > 1 ? `⬇️ Download HD Photos (${n})` : '⬇️ Download HD Photo',
-    dlTblBtn: (n) => n > 1 ? `📥 HD (${n})` : '📥 HD',
-    dlOneBtn: '🖼️ Download This Photo (HD)',
-    dlZipBtn: (n) => n > 1 ? `📦 All Photos (${n} ZIP)` : '📥 Download HD JPG',
-    dlTopBtn: '📥 Download HD',
-    dlBusy: '⏳ Preparing HD...',
-    dlToast: (n, sku) => n > 1 ? `Downloaded ${n} HD photos (${sku}.zip)` : `Downloaded HD photo (${sku}.jpg)`
+    dlBtn: (n) => n > 1 ? `⬇️ Download HD Photos (${n} JPG)` : '⬇️ Download HD Photo (JPG)',
+    dlTblBtn: (n) => n > 1 ? `📥 ${n} JPG` : '📥 JPG',
+    dlOneBtn: '🖼️ Download This Photo (JPG)',
+    dlZipBtn: (n) => n > 1 ? `⬇️ All (${n} JPG)` : '📥 Download JPG',
+    dlTopBtn: '📥 Download JPG',
+    dlBusy: '⏳ Downloading...',
+    dlToast: (n, sku) => n > 1 ? `Downloaded ${n} HD photos (.jpg) — ${sku}` : `Downloaded HD photo (.jpg) — ${sku}`
   }
 };
 
@@ -1937,97 +1939,7 @@ function showToast(msg) {
   setTimeout(() => toast.classList.remove('show'), 2200);
 }
 
-/* HD PHOTO DOWNLOAD & PURE-JS ZIP ENGINE */
-const _CRC32_TBL = (() => {
-  const tbl = new Uint32Array(256);
-  for (let i = 0; i < 256; i++) {
-    let c = i;
-    for (let k = 0; k < 8; k++) c = (c & 1) ? (0xEDB88320 ^ (c >>> 1)) : (c >>> 1);
-    tbl[i] = c >>> 0;
-  }
-  return tbl;
-})();
-
-function _crc32(bytes) {
-  let c = 0xFFFFFFFF;
-  for (let i = 0; i < bytes.length; i++) {
-    c = _CRC32_TBL[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8);
-  }
-  return (c ^ 0xFFFFFFFF) >>> 0;
-}
-
-function _buildZipBlob(entries) {
-  const enc = new TextEncoder();
-  const localParts = [];
-  const cdParts = [];
-  let offset = 0;
-  let cdSize = 0;
-  const now = new Date();
-  const dosTime = ((now.getHours() & 0x1F) << 11) | ((now.getMinutes() & 0x3F) << 5) | ((now.getSeconds() >> 1) & 0x1F);
-  const dosDate = (((Math.max(1980, now.getFullYear()) - 1980) & 0x7F) << 9) | (((now.getMonth() + 1) & 0x0F) << 5) | (now.getDate() & 0x1F);
-
-  for (const e of entries) {
-    const nameBytes = enc.encode(e.name);
-    const data = e.data;
-    const crc = _crc32(data);
-
-    const lfh = new ArrayBuffer(30 + nameBytes.length);
-    const lv = new DataView(lfh);
-    lv.setUint32(0, 0x04034b50, true);
-    lv.setUint16(4, 20, true);
-    lv.setUint16(6, 0x0800, true); // UTF-8
-    lv.setUint16(8, 0, true); // STORED
-    lv.setUint16(10, dosTime, true);
-    lv.setUint16(12, dosDate, true);
-    lv.setUint32(14, crc, true);
-    lv.setUint32(18, data.length, true);
-    lv.setUint32(22, data.length, true);
-    lv.setUint16(26, nameBytes.length, true);
-    lv.setUint16(28, 0, true);
-    new Uint8Array(lfh, 30).set(nameBytes);
-    localParts.push(new Uint8Array(lfh), data);
-
-    const cdh = new ArrayBuffer(46 + nameBytes.length);
-    const cv = new DataView(cdh);
-    cv.setUint32(0, 0x02014b50, true);
-    cv.setUint16(4, 20, true);
-    cv.setUint16(6, 20, true);
-    cv.setUint16(8, 0x0800, true);
-    cv.setUint16(10, 0, true);
-    cv.setUint16(12, dosTime, true);
-    cv.setUint16(14, dosDate, true);
-    cv.setUint32(16, crc, true);
-    cv.setUint32(20, data.length, true);
-    cv.setUint32(24, data.length, true);
-    cv.setUint16(28, nameBytes.length, true);
-    cv.setUint16(30, 0, true);
-    cv.setUint16(32, 0, true);
-    cv.setUint16(34, 0, true);
-    cv.setUint16(36, 0, true);
-    cv.setUint32(38, 0, true);
-    cv.setUint32(42, offset, true);
-    new Uint8Array(cdh, 46).set(nameBytes);
-    const cdBytes = new Uint8Array(cdh);
-    cdParts.push(cdBytes);
-
-    offset += lfh.byteLength + data.length;
-    cdSize += cdBytes.length;
-  }
-
-  const eocd = new ArrayBuffer(22);
-  const ev = new DataView(eocd);
-  ev.setUint32(0, 0x06054b50, true);
-  ev.setUint16(4, 0, true);
-  ev.setUint16(6, 0, true);
-  ev.setUint16(8, entries.length, true);
-  ev.setUint16(10, entries.length, true);
-  ev.setUint32(12, cdSize, true);
-  ev.setUint32(16, offset, true);
-  ev.setUint16(20, 0, true);
-
-  return new Blob([...localParts, ...cdParts, new Uint8Array(eocd)], { type: 'application/zip' });
-}
-
+/* HD PHOTO DOWNLOAD ENGINE (DIRECT JPG FILES, NO ZIP) */
 function _photoRoleName(i, total) {
   if (total === 4) {
     const roles = {
@@ -2047,7 +1959,7 @@ function _safeFileSlug(p) {
   return `${num}_${sku}`;
 }
 
-async function _urlToHdJpegBytes(url, minLongSide = 1600, quality = 0.96) {
+async function _urlToHdJpegBlob(url, minLongSide = 1600, quality = 0.96) {
   let objUrl = null;
   try {
     let imgSrc = url;
@@ -2081,10 +1993,9 @@ async function _urlToHdJpegBytes(url, minLongSide = 1600, quality = 0.96) {
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = 'high';
     ctx.drawImage(img, 0, 0, w, h);
-    const jpegBlob = await new Promise((resolve, reject) => {
+    return await new Promise((resolve, reject) => {
       canvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/jpeg', quality);
     });
-    return new Uint8Array(await jpegBlob.arrayBuffer());
   } finally {
     if (objUrl) URL.revokeObjectURL(objUrl);
   }
@@ -2098,7 +2009,7 @@ function _triggerBlobDownload(blob, filename) {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(u), 2500);
+  setTimeout(() => URL.revokeObjectURL(u), 4000);
 }
 
 async function downloadProductAll(idx, btnEl) {
@@ -2111,22 +2022,20 @@ async function downloadProductAll(idx, btnEl) {
   if (btnEl) { btnEl.disabled = true; btnEl.textContent = ui.dlBusy; }
   try {
     const slug = _safeFileSlug(p);
-    if (imgs.length === 1) {
-      const bytes = await _urlToHdJpegBytes(imgs[0], 1600, 0.96);
-      const fname = `${slug}_${_photoRoleName(0, 1)}_HD.jpg`;
-      _triggerBlobDownload(new Blob([bytes], { type: 'image/jpeg' }), fname);
-      showToast(ui.dlToast(1, p.code));
-    } else {
-      const entries = [];
-      for (let i = 0; i < imgs.length; i++) {
-        const bytes = await _urlToHdJpegBytes(imgs[i], 1600, 0.96);
-        entries.push({ name: `${slug}_${_photoRoleName(i, imgs.length)}_HD.jpg`, data: bytes });
-      }
-      const zipBlob = _buildZipBlob(entries);
-      const zipTag = currentLang === 'es' ? 'FOTOS_HD' : (currentLang === 'en' ? 'PHOTOS_HD' : 'ZDJECIA_HD');
-      _triggerBlobDownload(zipBlob, `${slug}_${zipTag}.zip`);
-      showToast(ui.dlToast(imgs.length, p.code));
+    const prepared = [];
+    for (let i = 0; i < imgs.length; i++) {
+      if (btnEl && imgs.length > 1) btnEl.textContent = `⏳ ${i + 1}/${imgs.length}...`;
+      const jpgBlob = await _urlToHdJpegBlob(imgs[i], 1600, 0.96);
+      const fname = `${slug}_${_photoRoleName(i, imgs.length)}_HD.jpg`;
+      prepared.push({ blob: jpgBlob, fname });
     }
+    for (let i = 0; i < prepared.length; i++) {
+      _triggerBlobDownload(prepared[i].blob, prepared[i].fname);
+      if (i < prepared.length - 1) {
+        await new Promise(r => setTimeout(r, 350));
+      }
+    }
+    showToast(ui.dlToast(prepared.length, p.code));
   } catch (err) {
     console.error(err);
     const a = document.createElement('a');
@@ -2156,9 +2065,9 @@ async function downloadCurrentPhotoHd(btnEl) {
   if (btnEl) { btnEl.disabled = true; btnEl.textContent = ui.dlBusy; }
   try {
     const slug = _safeFileSlug(p);
-    const bytes = await _urlToHdJpegBytes(url, 1600, 0.96);
+    const jpgBlob = await _urlToHdJpegBlob(url, 1600, 0.96);
     const fname = `${slug}_${_photoRoleName(pIdx, imgs.length)}_HD.jpg`;
-    _triggerBlobDownload(new Blob([bytes], { type: 'image/jpeg' }), fname);
+    _triggerBlobDownload(jpgBlob, fname);
     showToast(ui.dlToast(1, `${p.code} #${pIdx + 1}`));
   } catch (err) {
     console.error(err);
@@ -2176,6 +2085,8 @@ async function downloadCurrentPhotoHd(btnEl) {
   }
 }
 /* END HD PHOTO DOWNLOAD ENGINE */
+
+
 
 
 // LIGHTBOX & ZOOM LOGIC
