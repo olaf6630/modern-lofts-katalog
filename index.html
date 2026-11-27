@@ -1168,6 +1168,424 @@ header {
 }
 /* END HD DOWNLOAD BUTTONS */
 
+
+
+
+/* FEEDBACK MODAL & HEADER CTA */
+.fb-header-btn {
+  background: linear-gradient(135deg, #e5a93c 0%, #f59e0b 100%);
+  color: #0b0f17;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 800;
+  font-family: var(--font-main);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  box-shadow: 0 4px 16px rgba(229, 169, 60, 0.28);
+  transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
+  white-space: nowrap;
+}
+.fb-header-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 6px 22px rgba(229, 169, 60, 0.42);
+}
+.fb-count-badge {
+  background: rgba(11, 15, 23, 0.85);
+  color: #fcd34d;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 7px;
+  border-radius: 999px;
+  min-width: 22px;
+  text-align: center;
+  display: none;
+}
+.fb-count-badge.has-items {
+  display: inline-block;
+}
+.fb-lb-btn {
+  width: 100%;
+  background: rgba(229, 169, 60, 0.14);
+  border: 1px solid rgba(229, 169, 60, 0.45);
+  color: var(--accent-light);
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.16s ease;
+}
+.fb-lb-btn:hover {
+  background: var(--accent);
+  color: #0b0f17;
+  border-color: var(--accent);
+}
+.fb-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 9, 16, 0.82);
+  backdrop-filter: blur(8px);
+  z-index: 1200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.fb-modal-backdrop.open {
+  display: flex;
+}
+.fb-modal-card {
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+  background: #111927;
+  border: 1px solid #2b3c54;
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--text-primary);
+}
+.fb-modal-head {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #162234;
+}
+.fb-modal-title {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.fb-close-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.fb-close-btn:hover {
+  color: #fff;
+  border-color: var(--accent);
+}
+.fb-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 12px 20px 0;
+  background: #111927;
+}
+.fb-tab-btn {
+  background: #182334;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.fb-tab-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #0b0f17;
+}
+.fb-modal-body {
+  padding: 18px 20px 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+.fb-field {
+  margin-bottom: 14px;
+}
+.fb-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.fb-input, .fb-select, .fb-textarea {
+  width: 100%;
+  background: #0c131f;
+  border: 1px solid #2b3c54;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 14px;
+  font-family: var(--font-main);
+}
+.fb-input:focus, .fb-select:focus, .fb-textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+.fb-textarea {
+  resize: vertical;
+  min-height: 96px;
+  line-height: 1.45;
+}
+.fb-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.fb-rec-box {
+  background: #0d1523;
+  border: 1px dashed #334866;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 16px;
+}
+.fb-rec-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.fb-rec-btn {
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.55);
+  color: #fca5a5;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.16s;
+}
+.fb-rec-btn:hover {
+  background: rgba(239, 68, 68, 0.25);
+  color: #fff;
+}
+.fb-rec-btn.recording {
+  background: #dc2626;
+  border-color: #ef4444;
+  color: #fff;
+  animation: fbPulse 1.2s infinite;
+}
+@keyframes fbPulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.55); }
+  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+.fb-rec-timer {
+  font-family: monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #fca5a5;
+  display: none;
+}
+.fb-rec-timer.active {
+  display: inline-block;
+}
+.fb-file-lbl {
+  font-size: 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: underline;
+  margin-left: auto;
+}
+.fb-file-lbl:hover {
+  color: var(--accent-light);
+}
+.fb-audio-preview-wrap {
+  margin-top: 12px;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  background: #131e30;
+  border: 1px solid #253650;
+  border-radius: 10px;
+  padding: 10px;
+}
+.fb-audio-preview-wrap.visible {
+  display: flex;
+}
+.fb-audio-preview-wrap audio {
+  width: 100%;
+  height: 38px;
+}
+.fb-audio-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+.fb-del-rec-btn {
+  background: transparent;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #f87171;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.fb-del-rec-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+.fb-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #03150e;
+  border: none;
+  padding: 13px 16px;
+  border-radius: 10px;
+  font-size: 14.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: filter 0.15s, opacity 0.15s;
+}
+.fb-submit-btn:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+.fb-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+.fb-status-msg {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  display: none;
+}
+.fb-status-msg.err {
+  display: block;
+  background: rgba(239, 68, 68, 0.14);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  color: #fecaca;
+}
+.fb-status-msg.ok {
+  display: block;
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #a7f3d0;
+}
+.fb-list-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+.fb-refresh-btn {
+  background: #182334;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.fb-refresh-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent-light);
+}
+.fb-note-card {
+  background: #0d1523;
+  border: 1px solid #223249;
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 12px;
+}
+.fb-note-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+.fb-note-author {
+  font-weight: 800;
+  color: #fff;
+}
+.fb-note-date {
+  color: var(--text-muted);
+}
+.fb-note-sku {
+  display: inline-block;
+  background: rgba(229, 169, 60, 0.14);
+  border: 1px solid rgba(229, 169, 60, 0.38);
+  color: var(--accent-light);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.fb-note-sku:hover {
+  background: var(--accent);
+  color: #0b0f17;
+}
+.fb-note-text {
+  font-size: 13.5px;
+  color: #e2e8f0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.fb-note-audio {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.fb-note-audio audio {
+  width: 100%;
+  height: 38px;
+}
+.fb-empty {
+  text-align: center;
+  padding: 36px 16px;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+@media (max-width: 640px) {
+  .fb-row-2 { grid-template-columns: 1fr; }
+  .fb-modal-backdrop { padding: 8px; }
+  .fb-modal-card { max-height: 94vh; }
+  .fb-header-btn { width: 100%; justify-content: center; }
+}
+/* END FEEDBACK MODAL & HEADER CTA */
+
 </style>
 </head>
 <body>
@@ -1184,6 +1602,7 @@ header {
           <span><span id="uiDateLbl">Data</span>: <strong>2026-07-15</strong></span>
           <span><span id="uiRecipLbl">Odbiorca</span>: <strong>GLASSWORKS ESPANA SL</strong></span>
         </div>
+                <!-- FEEDBACK HEADER BTN START --><button type="button" class="fb-header-btn" id="fbHeaderBtn" onclick="openFeedbackModal()"><span id="fbHeaderBtnLabel">💬 Napisz / 🎙️ Nagraj uwagi</span><span class="fb-count-badge" id="fbHeaderBadge">0</span></button><!-- FEEDBACK HEADER BTN END -->
         <div class="lang-switch" title="Język / Idioma / Language">
           <button class="lang-btn active" id="langBtnPl" onclick="setLang('pl')">PL</button>
           <button class="lang-btn" id="langBtnEs" onclick="setLang('es')">ES</button>
@@ -1369,11 +1788,80 @@ header {
           <button class="dl-card-btn" id="uiLbDlAllBtn" style="margin-top:0; padding:8px 6px; font-size:11.5px;" onclick="downloadProductAll(currentLightboxIdx, this)">📦 Pobierz wszystkie</button>
         </div>
         <button class="amz-copy-all-btn" id="uiLbCopyAllBtn" style="width:100%;" onclick="copyAmzAll(currentLightboxIdx)">⚡ Kopiuj cały komplet Amazon</button>
+                <!-- FEEDBACK LB BTN START --><button type="button" class="fb-lb-btn" id="uiLbFeedbackBtn" onclick="openFeedbackForCurrentProduct()">💬 Dodaj uwagę / nagranie do tego produktu</button><!-- FEEDBACK LB BTN END -->
         <button class="lb-btn" id="uiLbCopySkuBtn" style="width: 100%; justify-content: center; padding: 10px;" onclick="copyLbCode()">📋 Kopiuj kod produktu (SKU)</button>
       </div>
     </div>
   </div>
 </div>
+
+
+<!-- FEEDBACK MODAL START -->
+<div class="fb-modal-backdrop" id="feedbackModal" onclick="if(event.target===this) closeFeedbackModal()">
+  <div class="fb-modal-card" role="dialog" aria-modal="true" aria-labelledby="fbModalTitle">
+    <div class="fb-modal-head">
+      <div class="fb-modal-title" id="fbModalTitle">💬 Uwagi i notatki głosowe</div>
+      <button class="fb-close-btn" type="button" onclick="closeFeedbackModal()" aria-label="Zamknij">&times;</button>
+    </div>
+
+    <div class="fb-tabs">
+      <button class="fb-tab-btn active" type="button" id="fbTabCompose" onclick="setFeedbackTab('compose')">✍️ Napisz / 🎙️ Nagraj</button>
+      <button class="fb-tab-btn" type="button" id="fbTabList" onclick="setFeedbackTab('list')">📋 Zapisane uwagi (0)</button>
+    </div>
+
+    <div class="fb-modal-body">
+      <div id="fbPanelCompose">
+        <div class="fb-row-2">
+          <div class="fb-field">
+            <label class="fb-label" for="fbAuthor" id="fbLblAuthor">Twoje imię / firma (opcjonalnie)</label>
+            <input type="text" id="fbAuthor" class="fb-input" maxlength="80" placeholder="np. Jan / Glassworks">
+          </div>
+          <div class="fb-field">
+            <label class="fb-label" for="fbSkuSelect" id="fbLblSku">Dotyczy produktu (opcjonalnie)</label>
+            <select id="fbSkuSelect" class="fb-select"></select>
+          </div>
+        </div>
+
+        <div class="fb-field">
+          <label class="fb-label" for="fbText" id="fbLblText">Twoja uwaga (tekst)</label>
+          <textarea id="fbText" class="fb-textarea" maxlength="5000" placeholder="Napisz co zmienić, dodać, poprawić (np. ceny, zdjęcia, opisy, wymiary)..."></textarea>
+        </div>
+
+        <div class="fb-rec-box">
+          <div class="fb-label" id="fbLblVoice" style="margin-bottom:8px;">🎙️ Lub nagraj wiadomość głosową</div>
+          <div class="fb-rec-actions">
+            <button type="button" class="fb-rec-btn" id="fbRecBtn" onclick="toggleVoiceRecording()">🎙️ Nagraj głosówkę</button>
+            <span class="fb-rec-timer" id="fbRecTimer">00:00</span>
+            <label class="fb-file-lbl" id="fbFileLbl">
+              📎 Wybierz plik audio
+              <input type="file" id="fbAudioFileInput" accept="audio/*" style="display:none;" onchange="handleAudioFilePick(this)">
+            </label>
+          </div>
+          <div id="fbRecHint" style="font-size:11.5px; color:var(--text-muted); margin-top:8px;">Działa na telefonie i komputerze (maks. 4.5 MB ≈ 10+ min głosu).</div>
+          <div class="fb-audio-preview-wrap" id="fbAudioPreviewWrap">
+            <audio id="fbAudioPreview" controls playsinline></audio>
+            <div class="fb-audio-meta-row">
+              <span id="fbAudioMetaInfo">Nagranie gotowe</span>
+              <button type="button" class="fb-del-rec-btn" id="fbDelRecBtn" onclick="clearRecordedAudio()">🗑️ Usuń nagranie</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="fb-submit-btn" id="fbSubmitBtn" onclick="submitFeedbackNote()">📤 Zapisz uwagę na stronie</button>
+        <div class="fb-status-msg" id="fbStatusMsg"></div>
+      </div>
+
+      <div id="fbPanelList" style="display:none;">
+        <div class="fb-list-toolbar">
+          <span id="fbListSummary" style="font-size:12.5px; color:var(--text-secondary);">Ładowanie...</span>
+          <button type="button" class="fb-refresh-btn" id="fbRefreshBtn" onclick="loadFeedbackNotes(true)">🔄 Odśwież</button>
+        </div>
+        <div id="fbNotesContainer"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- FEEDBACK MODAL END -->
 
 <div class="toast" id="toast">Komunikat</div>
 
@@ -1589,6 +2077,7 @@ function applyStaticTranslations() {
   setTxt('uiSbUnitVal', t.sbUnitVal);
   setTxt('uiLbCopyAllBtn', t.copyAll);
   setTxt('uiLbCopySkuBtn', t.copySku);
+  if (typeof applyFeedbackTranslations === 'function') applyFeedbackTranslations();
 }
 
 let currentCategory = 'Wszystkie';
@@ -2269,6 +2758,7 @@ viewport.addEventListener('dblclick', () => {
 
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
+  if (document.getElementById('feedbackModal')?.classList.contains('open')) { if (e.key === 'Escape') closeFeedbackModal(); return; }
   const modal = document.getElementById('lightboxModal');
   if (modal.style.display === 'flex') {
     if (e.key === 'Escape') closeLightbox();
@@ -2377,9 +2867,514 @@ document.getElementById('searchInput').addEventListener('input', (e) => {
   render();
 });
 
+
+/* FEEDBACK & VOICE NOTES ENGINE */
+const FEEDBACK_API_BASE = 'https://modern-lofts-feedback.netlify.app';
+const FB_I18N = {
+  pl: {
+    headerBtn: '💬 Napisz / 🎙️ Nagraj uwagi',
+    lbBtn: '💬 Dodaj uwagę / nagranie do tego produktu',
+    modalTitle: '💬 Uwagi i notatki głosowe',
+    tabCompose: '✍️ Napisz / 🎙️ Nagraj',
+    tabList: (n) => `📋 Zapisane uwagi (${n})`,
+    lblAuthor: 'Twoje imię / firma (opcjonalnie)',
+    phAuthor: 'np. Jan / Glassworks',
+    lblSku: 'Dotyczy produktu (opcjonalnie)',
+    skuGeneral: '— Ogólna uwaga do całego katalogu —',
+    lblText: 'Twoja uwaga (tekst)',
+    phText: 'Napisz co zmienić, dodać lub poprawić (np. ceny, zdjęcia, opisy, wymiary)...',
+    lblVoice: '🎙️ Lub nagraj wiadomość głosową',
+    recStart: '🎙️ Nagraj głosówkę',
+    recStop: '⏹️ Zatrzymaj nagrywanie',
+    pickFile: '📎 Lub wybierz plik audio',
+    recHint: 'Działa na telefonie i komputerze (maks. 4.5 MB ≈ 10+ min mowy).',
+    delRec: '🗑️ Usuń nagranie',
+    audioReady: (kb, sec) => sec ? `Nagranie gotowe (${sec} s • ${kb} KB)` : `Nagranie gotowe (${kb} KB)`,
+    submitBtn: '📤 Zapisz uwagę na stronie',
+    submitting: '⏳ Wysyłanie...',
+    refreshBtn: '🔄 Odśwież',
+    errEmpty: 'Wpisz treść uwagi lub nagraj głosówkę przed wysłaniem.',
+    errTooBig: 'Plik audio jest za duży (maksymalnie 4.5 MB).',
+    errMic: 'Brak dostępu do mikrofonu lub przeglądarka zablokowała nagrywanie. Możesz wpisać tekst albo użyć opcji „Wybierz plik audio”.',
+    errNet: 'Nie udało się połączyć z serwerem uwag. Spróbuj ponownie za chwilę.',
+    okSaved: '✅ Uwaga została zapisana! Możesz ją odsłuchać poniżej lub dodać kolejną.',
+    loading: 'Ładowanie zapisanych uwag...',
+    emptyList: 'Brak zapisanych uwag. Kliknij pierwszą zakładkę, aby napisać lub nagrać pierwszą uwagę!',
+    listSummary: (n) => n === 1 ? '1 zapisana uwaga' : `Zapisane uwagi: ${n}`,
+    guest: 'Gość',
+    audioDownload: '⬇️ Pobierz audio'
+  },
+  es: {
+    headerBtn: '💬 Escribir / 🎙️ Grabar nota',
+    lbBtn: '💬 Añadir nota o audio a este producto',
+    modalTitle: '💬 Comentarios y notas de voz',
+    tabCompose: '✍️ Escribir / 🎙️ Grabar',
+    tabList: (n) => `📋 Notas guardadas (${n})`,
+    lblAuthor: 'Tu nombre / empresa (opcional)',
+    phAuthor: 'ej. Carlos / Glassworks',
+    lblSku: 'Producto relacionado (opcional)',
+    skuGeneral: '— Comentario general del catálogo —',
+    lblText: 'Tu comentario (texto)',
+    phText: 'Escribe qué cambiar, añadir o mejorar (precios, fotos, medidas, textos)...',
+    lblVoice: '🎙️ O graba una nota de voz',
+    recStart: '🎙️ Grabar nota de voz',
+    recStop: '⏹️ Detener grabación',
+    pickFile: '📎 O subir archivo de audio',
+    recHint: 'Funciona en móvil y ordenador (máx. 4.5 MB ≈ 10+ min de voz).',
+    delRec: '🗑️ Borrar grabación',
+    audioReady: (kb, sec) => sec ? `Audio listo (${sec} s • ${kb} KB)` : `Audio listo (${kb} KB)`,
+    submitBtn: '📤 Guardar comentario',
+    submitting: '⏳ Enviando...',
+    refreshBtn: '🔄 Actualizar',
+    errEmpty: 'Escribe un comentario o graba una nota de voz antes de enviar.',
+    errTooBig: 'El archivo de audio supera el límite de 4.5 MB.',
+    errMic: 'No se pudo acceder al micrófono. Puedes escribir texto o usar «subir archivo de audio».',
+    errNet: 'No se pudo conectar con el servidor de comentarios. Inténtalo de nuevo.',
+    okSaved: '✅ ¡Comentario guardado! Ya aparece en la lista.',
+    loading: 'Cargando comentarios...',
+    emptyList: 'Todavía no hay comentarios guardados. ¡Añade el primero!',
+    listSummary: (n) => n === 1 ? '1 comentario guardado' : `Comentarios guardados: ${n}`,
+    guest: 'Invitado',
+    audioDownload: '⬇️ Descargar audio'
+  },
+  en: {
+    headerBtn: '💬 Write / 🎙️ Record Note',
+    lbBtn: '💬 Add note / voice memo for this product',
+    modalTitle: '💬 Feedback & Voice Notes',
+    tabCompose: '✍️ Write / 🎙️ Record',
+    tabList: (n) => `📋 Saved notes (${n})`,
+    lblAuthor: 'Your name / company (optional)',
+    phAuthor: 'e.g. Alex / Glassworks',
+    lblSku: 'Related product (optional)',
+    skuGeneral: '— General catalog feedback —',
+    lblText: 'Your feedback (text)',
+    phText: 'Write what to change, add or fix (prices, photos, dimensions, copy)...',
+    lblVoice: '🎙️ Or record a voice note',
+    recStart: '🎙️ Record voice note',
+    recStop: '⏹️ Stop recording',
+    pickFile: '📎 Or choose audio file',
+    recHint: 'Works on mobile and desktop (max 4.5 MB ≈ 10+ min of voice).',
+    delRec: '🗑️ Remove recording',
+    audioReady: (kb, sec) => sec ? `Recording ready (${sec} s • ${kb} KB)` : `Recording ready (${kb} KB)`,
+    submitBtn: '📤 Save feedback',
+    submitting: '⏳ Sending...',
+    refreshBtn: '🔄 Refresh',
+    errEmpty: 'Please type a note or record a voice memo first.',
+    errTooBig: 'Audio file is too large (max 4.5 MB).',
+    errMic: 'Microphone permission denied or unavailable. You can write text or upload an audio file.',
+    errNet: 'Could not reach the feedback server. Please try again.',
+    okSaved: '✅ Feedback saved! It is now visible in the list.',
+    loading: 'Loading saved notes...',
+    emptyList: 'No feedback saved yet. Switch to the first tab to write or record one!',
+    listSummary: (n) => n === 1 ? '1 saved note' : `Saved notes: ${n}`,
+    guest: 'Guest',
+    audioDownload: '⬇️ Download audio'
+  }
+};
+
+let fbNotesCache = [];
+let fbActiveTab = 'compose';
+let fbMediaRecorder = null;
+let fbMediaStream = null;
+let fbRecordedChunks = [];
+let fbRecordedBlob = null;
+let fbRecordedMime = '';
+let fbRecordedExt = 'webm';
+let fbRecordedDuration = 0;
+let fbRecTimerInt = null;
+let fbRecStartMs = 0;
+let fbPreviewUrl = null;
+
+function fbT() { return FB_I18N[currentLang] || FB_I18N.pl; }
+
+function populateFeedbackSkuSelect(selectedVal) {
+  const sel = document.getElementById('fbSkuSelect');
+  if (!sel) return;
+  const keep = selectedVal !== undefined ? selectedVal : sel.value;
+  const opts = [`<option value="">${escHtml(fbT().skuGeneral)}</option>`];
+  for (const p of products) {
+    const val = `#${p.id} • ${p.code}`;
+    const label = `#${p.id} • ${p.code} — ${getPName(p).slice(0, 56)}`;
+    opts.push(`<option value="${escHtml(val)}">${escHtml(label)}</option>`);
+  }
+  sel.innerHTML = opts.join('');
+  if (keep) sel.value = keep;
+}
+
+function applyFeedbackTranslations() {
+  if (typeof FB_I18N === 'undefined') return;
+  const ft = fbT();
+  const setTxt = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+  setTxt('fbHeaderBtnLabel', ft.headerBtn);
+  setTxt('uiLbFeedbackBtn', ft.lbBtn);
+  setTxt('fbModalTitle', ft.modalTitle);
+  setTxt('fbTabCompose', ft.tabCompose);
+  setTxt('fbTabList', ft.tabList(fbNotesCache.length));
+  setTxt('fbLblAuthor', ft.lblAuthor);
+  const aIn = document.getElementById('fbAuthor');
+  if (aIn) aIn.placeholder = ft.phAuthor;
+  setTxt('fbLblSku', ft.lblSku);
+  setTxt('fbLblText', ft.lblText);
+  const tIn = document.getElementById('fbText');
+  if (tIn) tIn.placeholder = ft.phText;
+  setTxt('fbLblVoice', ft.lblVoice);
+  const recBtn = document.getElementById('fbRecBtn');
+  if (recBtn) recBtn.textContent = (fbMediaRecorder && fbMediaRecorder.state === 'recording') ? ft.recStop : ft.recStart;
+  const fLbl = document.getElementById('fbFileLbl');
+  if (fLbl) {
+    const inp = document.getElementById('fbAudioFileInput');
+    fLbl.textContent = ft.pickFile + ' ';
+    if (inp) fLbl.appendChild(inp);
+  }
+  setTxt('fbRecHint', ft.recHint);
+  setTxt('fbDelRecBtn', ft.delRec);
+  const subBtn = document.getElementById('fbSubmitBtn');
+  if (subBtn && !subBtn.disabled) subBtn.textContent = ft.submitBtn;
+  setTxt('fbRefreshBtn', ft.refreshBtn);
+  populateFeedbackSkuSelect();
+  if (fbActiveTab === 'list') renderFeedbackNotesList();
+}
+
+function openFeedbackModal(preselectSku) {
+  const modal = document.getElementById('feedbackModal');
+  if (!modal) return;
+  try {
+    const savedAuthor = localStorage.getItem('loft_fb_author_v1');
+    const aIn = document.getElementById('fbAuthor');
+    if (savedAuthor && aIn && !aIn.value) aIn.value = savedAuthor;
+  } catch(e) {}
+  applyFeedbackTranslations();
+  if (preselectSku) {
+    populateFeedbackSkuSelect(preselectSku);
+    setFeedbackTab('compose');
+  } else {
+    populateFeedbackSkuSelect();
+  }
+  setFeedbackStatus('', '');
+  modal.classList.add('open');
+  loadFeedbackNotes(false);
+}
+
+function openFeedbackForCurrentProduct() {
+  const p = products[currentLightboxIdx];
+  const skuTag = p ? `#${p.id} • ${p.code}` : '';
+  openFeedbackModal(skuTag);
+}
+
+function closeFeedbackModal() {
+  stopVoiceRecordingIfActive();
+  const modal = document.getElementById('feedbackModal');
+  if (modal) modal.classList.remove('open');
+}
+
+function setFeedbackTab(tab) {
+  fbActiveTab = tab;
+  document.getElementById('fbTabCompose')?.classList.toggle('active', tab === 'compose');
+  document.getElementById('fbTabList')?.classList.toggle('active', tab === 'list');
+  const p1 = document.getElementById('fbPanelCompose');
+  const p2 = document.getElementById('fbPanelList');
+  if (p1) p1.style.display = tab === 'compose' ? 'block' : 'none';
+  if (p2) p2.style.display = tab === 'list' ? 'block' : 'none';
+  if (tab === 'list') loadFeedbackNotes(true);
+}
+
+function setFeedbackStatus(type, msg) {
+  const el = document.getElementById('fbStatusMsg');
+  if (!el) return;
+  el.className = 'fb-status-msg' + (type ? ' ' + type : '');
+  el.textContent = msg || '';
+}
+
+function _pickSupportedAudioMime() {
+  if (typeof MediaRecorder === 'undefined' || !MediaRecorder.isTypeSupported) return '';
+  const candidates = [
+    'audio/webm;codecs=opus',
+    'audio/webm',
+    'audio/mp4',
+    'audio/ogg;codecs=opus',
+    'audio/ogg'
+  ];
+  for (const c of candidates) {
+    try { if (MediaRecorder.isTypeSupported(c)) return c; } catch(e) {}
+  }
+  return '';
+}
+
+function _extFromMime(mime) {
+  const m = (mime || '').toLowerCase();
+  if (m.includes('mp4') || m.includes('m4a')) return 'm4a';
+  if (m.includes('ogg')) return 'ogg';
+  if (m.includes('mpeg') || m.includes('mp3')) return 'mp3';
+  if (m.includes('wav')) return 'wav';
+  return 'webm';
+}
+
+function _fmtTimer(sec) {
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+}
+
+function _setRecordedAudioPreview(blob, mime, durationSec) {
+  if (fbPreviewUrl) { URL.revokeObjectURL(fbPreviewUrl); fbPreviewUrl = null; }
+  fbRecordedBlob = blob;
+  fbRecordedMime = mime || blob.type || 'audio/webm';
+  fbRecordedExt = _extFromMime(fbRecordedMime);
+  fbRecordedDuration = durationSec || 0;
+  fbPreviewUrl = URL.createObjectURL(blob);
+  const audioEl = document.getElementById('fbAudioPreview');
+  const wrap = document.getElementById('fbAudioPreviewWrap');
+  const meta = document.getElementById('fbAudioMetaInfo');
+  if (audioEl) audioEl.src = fbPreviewUrl;
+  if (meta) meta.textContent = fbT().audioReady(Math.max(1, Math.round(blob.size / 1024)), fbRecordedDuration);
+  if (wrap) wrap.classList.add('visible');
+}
+
+function clearRecordedAudio() {
+  stopVoiceRecordingIfActive();
+  if (fbPreviewUrl) { URL.revokeObjectURL(fbPreviewUrl); fbPreviewUrl = null; }
+  fbRecordedBlob = null;
+  fbRecordedMime = '';
+  fbRecordedDuration = 0;
+  const audioEl = document.getElementById('fbAudioPreview');
+  if (audioEl) { audioEl.pause(); audioEl.removeAttribute('src'); audioEl.load(); }
+  document.getElementById('fbAudioPreviewWrap')?.classList.remove('visible');
+  const fIn = document.getElementById('fbAudioFileInput');
+  if (fIn) fIn.value = '';
+}
+
+function handleAudioFilePick(inputEl) {
+  const file = inputEl && inputEl.files && inputEl.files[0];
+  if (!file) return;
+  if (file.size > 4_500_000) {
+    setFeedbackStatus('err', fbT().errTooBig);
+    inputEl.value = '';
+    return;
+  }
+  setFeedbackStatus('', '');
+  _setRecordedAudioPreview(file, file.type || 'audio/mpeg', 0);
+}
+
+function stopVoiceRecordingIfActive() {
+  if (fbRecTimerInt) { clearInterval(fbRecTimerInt); fbRecTimerInt = null; }
+  const timerEl = document.getElementById('fbRecTimer');
+  if (timerEl) timerEl.classList.remove('active');
+  const btn = document.getElementById('fbRecBtn');
+  if (btn) { btn.classList.remove('recording'); btn.textContent = fbT().recStart; }
+  if (fbMediaRecorder && fbMediaRecorder.state === 'recording') {
+    try { fbMediaRecorder.stop(); } catch(e) {}
+  }
+  if (fbMediaStream) {
+    try { fbMediaStream.getTracks().forEach(t => t.stop()); } catch(e) {}
+    fbMediaStream = null;
+  }
+}
+
+async function toggleVoiceRecording() {
+  setFeedbackStatus('', '');
+  if (fbMediaRecorder && fbMediaRecorder.state === 'recording') {
+    stopVoiceRecordingIfActive();
+    return;
+  }
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || typeof MediaRecorder === 'undefined') {
+    setFeedbackStatus('err', fbT().errMic);
+    return;
+  }
+  try {
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    fbMediaStream = stream;
+    fbRecordedChunks = [];
+    const mime = _pickSupportedAudioMime();
+    const opts = { audioBitsPerSecond: 32000 };
+    if (mime) opts.mimeType = mime;
+    let mr;
+    try { mr = new MediaRecorder(stream, opts); }
+    catch(e) { mr = new MediaRecorder(stream); }
+    fbMediaRecorder = mr;
+    fbRecStartMs = Date.now();
+
+    mr.ondataavailable = (ev) => {
+      if (ev.data && ev.data.size > 0) fbRecordedChunks.push(ev.data);
+    };
+    mr.onstop = () => {
+      const elapsed = Math.max(1, Math.round((Date.now() - fbRecStartMs) / 1000));
+      const finalMime = mr.mimeType || mime || 'audio/webm';
+      const blob = new Blob(fbRecordedChunks, { type: finalMime });
+      if (fbMediaStream) {
+        try { fbMediaStream.getTracks().forEach(t => t.stop()); } catch(e) {}
+        fbMediaStream = null;
+      }
+      if (blob.size > 4_500_000) {
+        setFeedbackStatus('err', fbT().errTooBig);
+        return;
+      }
+      if (blob.size > 0) _setRecordedAudioPreview(blob, finalMime, elapsed);
+    };
+
+    mr.start(500);
+    const btn = document.getElementById('fbRecBtn');
+    const timerEl = document.getElementById('fbRecTimer');
+    if (btn) { btn.classList.add('recording'); btn.textContent = fbT().recStop; }
+    if (timerEl) { timerEl.textContent = '00:00'; timerEl.classList.add('active'); }
+    fbRecTimerInt = setInterval(() => {
+      const sec = Math.floor((Date.now() - fbRecStartMs) / 1000);
+      if (timerEl) timerEl.textContent = _fmtTimer(sec);
+      if (sec >= 600) stopVoiceRecordingIfActive();
+    }, 500);
+  } catch (err) {
+    console.error(err);
+    stopVoiceRecordingIfActive();
+    setFeedbackStatus('err', fbT().errMic);
+  }
+}
+
+async function submitFeedbackNote() {
+  if (fbMediaRecorder && fbMediaRecorder.state === 'recording') {
+    stopVoiceRecordingIfActive();
+    await new Promise(r => setTimeout(r, 350));
+  }
+  const ft = fbT();
+  const author = (document.getElementById('fbAuthor')?.value || '').trim();
+  const sku = (document.getElementById('fbSkuSelect')?.value || '').trim();
+  const text = (document.getElementById('fbText')?.value || '').trim();
+  if (!text && !fbRecordedBlob) {
+    setFeedbackStatus('err', ft.errEmpty);
+    return;
+  }
+  if (fbRecordedBlob && fbRecordedBlob.size > 4_500_000) {
+    setFeedbackStatus('err', ft.errTooBig);
+    return;
+  }
+  if (author) {
+    try { localStorage.setItem('loft_fb_author_v1', author); } catch(e) {}
+  }
+  const btn = document.getElementById('fbSubmitBtn');
+  if (btn) { btn.disabled = true; btn.textContent = ft.submitting; }
+  setFeedbackStatus('', '');
+  try {
+    const fd = new FormData();
+    fd.append('author', author);
+    fd.append('sku', sku);
+    fd.append('lang', currentLang);
+    fd.append('text', text);
+    if (fbRecordedDuration) fd.append('durationSec', String(fbRecordedDuration));
+    if (fbRecordedBlob) {
+      fd.append('audioMime', fbRecordedMime || fbRecordedBlob.type || 'audio/webm');
+      fd.append('audio', fbRecordedBlob, `voice.${fbRecordedExt || 'webm'}`);
+    }
+    const resp = await fetch(`${FEEDBACK_API_BASE}/api/feedback`, {
+      method: 'POST',
+      body: fd
+    });
+    const data = await resp.json().catch(() => ({}));
+    if (!resp.ok || !data.ok) {
+      throw new Error(data.error || ('HTTP ' + resp.status));
+    }
+    const textEl = document.getElementById('fbText');
+    if (textEl) textEl.value = '';
+    clearRecordedAudio();
+    showToast(ft.okSaved);
+    await loadFeedbackNotes(false);
+    setFeedbackTab('list');
+  } catch (err) {
+    console.error(err);
+    setFeedbackStatus('err', err.message || ft.errNet);
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = fbT().submitBtn; }
+  }
+}
+
+function _updateFeedbackBadges(count) {
+  const b = document.getElementById('fbHeaderBadge');
+  if (b) {
+    b.textContent = String(count);
+    b.classList.toggle('has-items', count > 0);
+  }
+  const t = document.getElementById('fbTabList');
+  if (t) t.textContent = fbT().tabList(count);
+}
+
+function jumpToProductFromSkuTag(skuTag) {
+  const m = /^#(\d+)/.exec(skuTag || '');
+  if (!m) return;
+  const pid = parseInt(m[1], 10);
+  const idx = products.findIndex(x => x.id === pid);
+  if (idx >= 0) {
+    closeFeedbackModal();
+    openLightbox(idx);
+  }
+}
+
+function renderFeedbackNotesList() {
+  const ft = fbT();
+  const container = document.getElementById('fbNotesContainer');
+  const summary = document.getElementById('fbListSummary');
+  if (!container) return;
+  if (summary) summary.textContent = ft.listSummary(fbNotesCache.length);
+  if (!fbNotesCache.length) {
+    container.innerHTML = `<div class="fb-empty">${escHtml(ft.emptyList)}</div>`;
+    return;
+  }
+  const locale = currentLang === 'es' ? 'es-ES' : (currentLang === 'en' ? 'en-GB' : 'pl-PL');
+  container.innerHTML = fbNotesCache.map(n => {
+    let dt = n.createdAt || '';
+    try {
+      dt = new Date(n.createdAt).toLocaleString(locale, { dateStyle: 'short', timeStyle: 'short' });
+    } catch(e) {}
+    const author = n.author ? escHtml(n.author) : escHtml(ft.guest);
+    const skuHtml = n.sku
+      ? `<div class="fb-note-sku" onclick="jumpToProductFromSkuTag('${escHtml(n.sku).replace(/'/g, '&#39;')}')">📦 ${escHtml(n.sku)}</div>`
+      : '';
+    const textHtml = n.text ? `<div class="fb-note-text">${escHtml(n.text)}</div>` : '';
+    const audioHtml = (n.hasAudio && n.audioUrl)
+      ? `<div class="fb-note-audio">
+           <audio controls preload="metadata" playsinline src="${escHtml(n.audioUrl)}"></audio>
+           <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-muted);">
+             <span>🎙️ ${n.durationSec ? n.durationSec + ' s' : 'Audio'} • ${Math.max(1, Math.round((n.audioSize || 0)/1024))} KB</span>
+             <a href="${escHtml(n.audioUrl)}" target="_blank" rel="noopener" style="color:var(--accent-light); text-decoration:none;">${escHtml(ft.audioDownload)}</a>
+           </div>
+         </div>`
+      : '';
+    return `
+      <div class="fb-note-card">
+        <div class="fb-note-head">
+          <span class="fb-note-author">👤 ${author}</span>
+          <span class="fb-note-date">${escHtml(dt)}</span>
+        </div>
+        ${skuHtml}
+        ${textHtml}
+        ${audioHtml}
+      </div>
+    `;
+  }).join('');
+}
+
+async function loadFeedbackNotes(showLoadingState) {
+  const ft = fbT();
+  const summary = document.getElementById('fbListSummary');
+  if (showLoadingState && summary) summary.textContent = ft.loading;
+  try {
+    const resp = await fetch(`${FEEDBACK_API_BASE}/api/feedback`, { cache: 'no-store' });
+    if (!resp.ok) throw new Error('HTTP ' + resp.status);
+    const data = await resp.json();
+    fbNotesCache = Array.isArray(data.notes) ? data.notes : [];
+    _updateFeedbackBadges(fbNotesCache.length);
+    renderFeedbackNotesList();
+  } catch (err) {
+    console.warn('Feedback fetch error:', err);
+    if (showLoadingState && summary) summary.textContent = ft.errNet;
+  }
+}
+
+// Load feedback badge count on startup
+setTimeout(() => loadFeedbackNotes(false), 50);
+/* END FEEDBACK & VOICE NOTES ENGINE */
+
 applyStaticTranslations();
 initCategories();
 render();
+
+
 </script>
 </body>
 </html>
